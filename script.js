@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
-  //на все поля форм к которым добавляем маску навешиваеи дата-атрибуты
   let phoneInputs = document.querySelectorAll('input[data-tel-input]');
   
   let getInputNumberValue = function(input) {
-    //то что введено в поле вода(input.value)
-    //глабальная регулярка по всей строке ищет символы не явл-ся цифрами (/D) и заменяет их на пустые символы
     return input.value.replace(/\D/g, "");
   }
   
@@ -19,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     if(input.value.length != selectionStart){
-      //проверяем что человек вводит только цифры
       if(e.data && /\D/g.test(e.data)) {
         input.value = inputNumbersValue;
       }
@@ -52,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function(){
   
   let onPhoneKeyDown = function(e) {
     let input = e.target;
-    console.log();
     if(e.keyCode == 8 && getInputNumberValue(input).length == 1) {
       input.value = '';
     }
